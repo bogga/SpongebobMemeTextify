@@ -63,7 +63,14 @@ public class MemeText
 
 	public static void main(String[] args)
 	{
-		MemeText mt = new MemeText(args[0], Integer.parseInt(args[1]));
-		System.out.println(mt.getText());
+		try
+		{
+			MemeText mt = new MemeText(args[0], Integer.parseInt(args[1]));
+			System.out.println(mt.getText());
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("You're missing a parameter!");
+		}
 	}
 }
