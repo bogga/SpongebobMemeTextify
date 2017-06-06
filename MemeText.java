@@ -12,7 +12,7 @@ public class MemeText
 
 		for (int i = 0; i < s.length(); i++)
 		{
-			if (rand.nextInt(5) == 0)
+			if (rand.nextInt(3) == 0)
 			{
 				tempChar = s.charAt(i);
 				tempChar = Character.toUpperCase(tempChar);
