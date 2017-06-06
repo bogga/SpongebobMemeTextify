@@ -3,6 +3,7 @@ import java.util.Random;
 public class MemeText
 {
 	private String text;
+	private int odds = 3;
 
 	public MemeText(String s)
 	{
@@ -12,7 +13,33 @@ public class MemeText
 
 		for (int i = 0; i < s.length(); i++)
 		{
-			if (rand.nextInt(3) == 0)
+			if (rand.nextInt(odds) == 0)
+			{
+				tempChar = s.charAt(i);
+				tempChar = Character.toUpperCase(tempChar);
+			}
+			else
+			{
+				tempChar = s.charAt(i);
+				tempChar = Character.toLowerCase(tempChar);
+			}
+
+			temp += tempChar;
+		}
+
+		text = temp;
+	}
+
+	public MemeText(String s, int o)
+	{
+		odds = o;
+		String temp = "";
+		char tempChar;
+		Random rand = new Random();
+
+		for (int i = 0; i < s.length(); i++)
+		{
+			if (rand.nextInt(odds) == 0)
 			{
 				tempChar = s.charAt(i);
 				tempChar = Character.toUpperCase(tempChar);
@@ -36,7 +63,7 @@ public class MemeText
 
 	public static void main(String[] args)
 	{
-		MemeText mt = new MemeText(args[0]);
+		MemeText mt = new MemeText(args[0], Integer.parseInt(args[1]));
 		System.out.println(mt.getText());
 	}
 }
